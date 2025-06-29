@@ -45,7 +45,7 @@ export default function DashboardPage() {
               Welcome back, <span style={{ color: themeColors.primary }}>{DUMMY_USER.name}</span>!
             </h1>
             <p className="text-lg" style={{ color: themeColors.textSecondary }}>
-              Here's your project overview
+              Here's your project(s) overview
             </p>
           </div>
 
