@@ -26,7 +26,7 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark")
+  const [theme, setThemeState] = useState<Theme>("light")
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -48,10 +48,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const savedTheme = localStorage.getItem("theme") as Theme
     if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
       setTheme(savedTheme)
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light")
     } else {
-      setTheme("dark")
+      setTheme("light")
     }
     setMounted(true)
   }, [setTheme])
